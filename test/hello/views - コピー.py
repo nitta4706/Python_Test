@@ -1,19 +1,33 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+import json
 
-from .models import Greeting
+def coupon(request):
 
-# Create your views here.
-def index(request):
-    # return HttpResponse('Hello from Python!')
-    return render(request, "index.html")
+    if 'coupon_code' in request.GET:
+
+        coupon_code = request.GET['coupon_code']
+        mail = request.GET.get("email")
+        #passing = request.GET['password']
+        #sendmail = request.GET['sendmail_add']
 
 
-def db(request):
+        if coupon_code == '001':
+           message = '0'
 
-    greeting = Greeting()
-    greeting.save()
+        elif coupon_code == '002':
+           message = '-1'
 
-    greetings = Greeting.objects.all()
+        else:
+           message = '1'
+	
+        params = {
+	   'message':message,
+	   'mail':mail,
+           #'passing':passing,
+	   #'sendmail':sendmail
+	}
 
-    return render(request, "db.html", {"greetings": greetings})
+        json_str=json.dumps( params, ensure_ascii=False, indent=2)
+        return HttpResponse(json_str)
+

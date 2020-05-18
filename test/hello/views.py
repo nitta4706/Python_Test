@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
+import testing
+import Nitta
 
 def coupon(request):
 
@@ -8,24 +10,28 @@ def coupon(request):
 
         coupon_code = request.GET['coupon_code']
         mail = request.GET.get("email")
-        #passing = request.GET['password']
-        #sendmail = request.GET['sendmail_add']
-
+        passing = request.GET['password']
+        sendmail = request.GET['sendmail_add']
 
         if coupon_code == '001':
-           message = '0'
 
-        elif coupon_code == '002':
-           message = '-1'
+	   Test_message = testing.scraping(mail, passing)
+
+           if Test_message == 'OK_Google':
+  	       my_code = Nitta.mail_send(sendmail, mail, passing)
+
+               if my_code == 'Send_OK':
+                  message = '0'
+               else:
+                  message = '-1'
+	   else:
+		  message = '100'
 
         else:
            message = '1'
 	
         params = {
 	   'message':message,
-	   'mail':mail,
-           #'passing':passing,
-	   #'sendmail':sendmail
 	}
 
         json_str=json.dumps( params, ensure_ascii=False, indent=2)
