@@ -16,8 +16,8 @@ def scraping(email, password):
     driver_path = '/app/.chromedriver/bin/chromedriver'
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
-    driver = webdriver.Chrome(options=options)
-    # driver = webdriver.Chrome(options=options, executable_path=driver_path)
+    # driver = webdriver.Chrome(options=options, executable_path='/usr/local/bin/chromedriver')
+    driver = webdriver.Chrome(options=options, executable_path=driver_path)
 
     driver.get("https://www.xserver.ne.jp/login_info.php")
     driver.implicitly_wait(3)
@@ -46,6 +46,8 @@ def scraping(email, password):
             # メールアカウント設定クリック
             driver.find_element_by_xpath('//*[@id="top_menu"]/div[2]/div[1]/ul/li[1]/a').click()
         except NoSuchElementException:
+            import traceback
+            traceback.print_exc()
             driver.switch_to_window(handle[0])
             driver.find_element_by_xpath('//*[@id="top_menu"]/div[2]/div[1]/ul/li[1]/a').click()
             driver.implicitly_wait(3)
@@ -77,6 +79,8 @@ def scraping(email, password):
         my_message = 'OK_Google'
 
     except Exception:
+        import traceback
+        traceback.print_exc()
         error_flg = True
         my_message = 'Error'
 

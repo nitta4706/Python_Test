@@ -41,6 +41,8 @@ def mail_send(my_sender, email, my_pass):
   my_message = 'Send_OK'
 
  except Exception:
+  import traceback
+  traceback.print_exc()
   error_flg = True
   my_message = 'Error'
 
