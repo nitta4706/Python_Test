@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
-import testing
+from my_test.hello import testing
 from my_test.hello import Nitta
 
 
