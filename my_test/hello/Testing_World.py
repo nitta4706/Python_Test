@@ -5,8 +5,8 @@ from my_test.hello import testing
 from my_test.hello import Nitta
 
 try:
-    email = "saikio4791"
-    password = "nfgwe4791"
+    email = "saikio4706"
+    password = "nfgwe4706"
     sendmail_add = "saikio4706@gmail.com"
 
     Test_message = testing.scraping(email, password)
@@ -14,7 +14,7 @@ try:
 
     if Test_message == 'OK_Google':
 
-        my_code = Nitta.mail_send(sendmail_add)
+        my_code = Nitta.mail_send(sendmail_add, email, password)
         print(my_code)
 
         if my_code == 'Send_OK':
