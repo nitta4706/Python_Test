@@ -18,7 +18,7 @@ def coupon(request):
             Test_message = testing.scraping(mail, passing)
 
             if Test_message == 'OK_Google':
-                my_code = Nitta.mail_send(sendmail, mail, passing)
+                my_code = Nitta.mail_send(sendmail)
 
                 if my_code == 'Send_OK':
                     message = '0'
