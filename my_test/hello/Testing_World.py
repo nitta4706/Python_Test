@@ -5,8 +5,8 @@ from my_test.hello import testing
 from my_test.hello import Nitta
 
 try:
-    email = "saikio4706"
-    password = "nfgwe4706"
+    email = "saikio4791"
+    password = "nfgwe4791"
     sendmail_add = "saikio4706@gmail.com"
 
     Test_message = testing.scraping(email, password)

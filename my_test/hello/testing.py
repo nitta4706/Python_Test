@@ -16,8 +16,8 @@ def scraping(email, password):
     driver_path = '/app/.chromedriver/bin/chromedriver'
     options = webdriver.ChromeOptions()
     options.add_argument('--headless')
-    # driver = webdriver.Chrome(options=options, executable_path='/usr/local/bin/chromedriver')
-    driver = webdriver.Chrome(options=options, executable_path=driver_path)
+    driver = webdriver.Chrome(options=options, executable_path='/usr/local/bin/chromedriver')
+    # driver = webdriver.Chrome(options=options, executable_path=driver_path)
 
     driver.get("https://www.xserver.ne.jp/login_info.php")
     driver.implicitly_wait(3)

@@ -14,8 +14,9 @@ def mail_send(my_sender):
         subject = "新規登録完了のお知らせ"
         my_data = "ご登録ありがとうございます\n\n"
         my_data = my_data + "下記の内容で新規登録完了しました。\n\n"
-        my_data = my_data + "お客様のメールアドレス: " + email + "gay86.com\n"
-        my_data = my_data + "お客様の登録パスワード: " + my_pass + "\n\n"
+        # TODO://emailとmy_passが定義されていないため、エラーが起きる
+        # my_data = my_data + "お客様のメールアドレス: " + email + "gay86.com\n"
+        # my_data = my_data + "お客様の登録パスワード: " + my_pass + "\n\n"
         my_data = my_data + "何かありましたら下記までご連絡下さい。\n\n"
         my_data = my_data + "****************************************\n"
         my_data = my_data + "株式会社 G\n"
@@ -45,3 +46,8 @@ def mail_send(my_sender):
         my_message = 'Error'
 
     return my_message
+
+
+if __name__ == '__main__':
+    test_sender = ''
+    mail_send(test_sender)
