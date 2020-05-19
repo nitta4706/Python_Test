@@ -3,7 +3,7 @@ import base64
 from email.mime.text import MIMEText
 
 
-def mail_send(my_sender, email, my_pass):
+def mail_send(my_sender):
     try:
         # 登録するための固定アカウント内容
         account = "saikio4706@yahoo.co.jp"

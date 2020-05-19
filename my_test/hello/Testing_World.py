@@ -14,7 +14,7 @@ try:
 
     if Test_message == 'OK_Google':
 
-        my_code = Nitta.mail_send(sendmail_add, email, password)
+        my_code = Nitta.mail_send(sendmail_add)
         print(my_code)
 
         if my_code == 'Send_OK':
